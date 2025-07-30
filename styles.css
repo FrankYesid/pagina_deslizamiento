@@ -604,10 +604,26 @@ body {
 
 /* Future Work Section - Enhanced */
 .future-hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
+    display: flex; /* Cambiado a flexbox para mejor alineación vertical */
+    gap: 2rem;
+    align-items: stretch; /* Estira los hijos para que tengan la misma altura */
+}
+
+.future-hero-content, .future-hero-visual {
+    flex: 1; /* Ocupan el mismo espacio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.future-hero-visual .satellite-image {
+    width: 100%;
+    height: 100%; /* La imagen ocupa toda la altura del contenedor */
+    object-fit: cover; /* La imagen cubre el espacio sin deformarse */
+    border-radius: 8px;
+}
+
+.future-hero {
     margin: 3rem 0;
     padding: 2rem;
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
