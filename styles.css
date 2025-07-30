@@ -25,6 +25,7 @@ body {
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
@@ -1246,47 +1247,94 @@ body {
 
 .layer-overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(44, 85, 48, 0.9);
+    bottom: 15px;
+    left: 15px;
+    background: rgba(44, 85, 48, 0.7);
     color: white;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
     text-align: center;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    font-size: 0.75rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.satellite-layer.active .layer-overlay {
+    opacity: 1;
+    transform: translateY(0);
+    animation: overlayFadeIn 0.6s ease-out;
+}
+
+@keyframes overlayFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(15px) scale(0.9);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(5px) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .layer-overlay i {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
     display: block;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
 }
 
 .layer-overlay p {
     margin: 0;
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: 500;
+    font-size: 0.7rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Map Controls */
 .map-controls {
+    position: absolute;
+    bottom: 9px;
+    right: 9px;
     display: flex;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    justify-content: center;
+    gap: 0.3rem;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.3rem;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .map-btn {
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 0.6rem;
     background: rgba(168, 213, 186, 0.2);
     border: 1px solid rgba(168, 213, 186, 0.3);
-    border-radius: 20px;
+    border-radius: 12px;
     color: #4a7c59;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .map-btn:hover {
@@ -1368,10 +1416,15 @@ body {
     
     .map-controls {
         flex-wrap: wrap;
+        bottom: 5px;
+        right: 5px;
+        padding: 0.2rem;
     }
     
     .map-btn {
         flex: 1;
         min-width: 80px;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.65rem;
     }
 } 
