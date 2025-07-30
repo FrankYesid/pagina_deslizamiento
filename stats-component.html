@@ -1,0 +1,507 @@
+<!-- Componente de Estadísticas en Tiempo Real -->
+<div class="stats-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Impacto del Proyecto</h2>
+            <p>Estadísticas en tiempo real del monitoreo de deslizamientos</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-satellite"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" data-target="1247">0</div>
+                    <div class="stat-label">Zonas Monitoreadas</div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+12 este mes</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" data-target="156">0</div>
+                    <div class="stat-label">Fincas Protegidas</div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+8 esta semana</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" data-target="23">0</div>
+                    <div class="stat-label">Alertas Activas</div>
+                    <div class="stat-change negative">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>-5 desde ayer</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-percentage"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-number" data-target="94.2">0</div>
+                    <div class="stat-label">Precisión del Modelo</div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+2.1% este mes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="impact-metrics">
+            <div class="metric-row">
+                <div class="metric-item">
+                    <h4>Reducción de Riesgos</h4>
+                    <div class="metric-value">
+                        <span class="metric-number">67%</span>
+                        <span class="metric-unit">menos incidentes</span>
+                    </div>
+                    <div class="metric-description">
+                        Comparado con el año anterior gracias al sistema de alertas tempranas
+                    </div>
+                </div>
+                
+                <div class="metric-item">
+                    <h4>Cobertura Geográfica</h4>
+                    <div class="metric-value">
+                        <span class="metric-number">2,847</span>
+                        <span class="metric-unit">km²</span>
+                    </div>
+                    <div class="metric-description">
+                        Área total monitoreada en la región cafetera de Caldas
+                    </div>
+                </div>
+                
+                <div class="metric-item">
+                    <h4>Tiempo de Respuesta</h4>
+                    <div class="metric-value">
+                        <span class="metric-number">15</span>
+                        <span class="metric-unit">minutos</span>
+                    </div>
+                    <div class="metric-description">
+                        Tiempo promedio desde la detección hasta la alerta
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="recent-activity">
+            <h3>Actividad Reciente</h3>
+            <div class="activity-timeline">
+                <div class="activity-item">
+                    <div class="activity-time">Hace 5 minutos</div>
+                    <div class="activity-content">
+                        <i class="fas fa-exclamation-circle warning"></i>
+                        <span>Nueva alerta detectada en zona de Manizales</span>
+                    </div>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-time">Hace 12 minutos</div>
+                    <div class="activity-content">
+                        <i class="fas fa-check-circle success"></i>
+                        <span>Actualización de datos satelitales completada</span>
+                    </div>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-time">Hace 25 minutos</div>
+                    <div class="activity-content">
+                        <i class="fas fa-coffee info"></i>
+                        <span>Nueva finca cafetera agregada al sistema</span>
+                    </div>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-time">Hace 1 hora</div>
+                    <div class="activity-content">
+                        <i class="fas fa-chart-line positive"></i>
+                        <span>Mejora en precisión del modelo de predicción</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Estilos para el componente de estadísticas */
+.stats-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.stat-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #4a7c59, #6b9c7a);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-icon i {
+    font-size: 24px;
+    color: white;
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c5530;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.stat-change {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.stat-change.positive {
+    color: #28a745;
+}
+
+.stat-change.negative {
+    color: #dc3545;
+}
+
+.impact-metrics {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.metric-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.metric-item h4 {
+    color: #2c5530;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.metric-value {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.metric-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #4a7c59;
+}
+
+.metric-unit {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.metric-description {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.recent-activity {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.recent-activity h3 {
+    color: #2c5530;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.activity-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-time {
+    font-size: 0.8rem;
+    color: #999;
+    min-width: 100px;
+}
+
+.activity-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.activity-content i {
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+.activity-content i.warning {
+    color: #ffc107;
+}
+
+.activity-content i.success {
+    color: #28a745;
+}
+
+.activity-content i.info {
+    color: #17a2b8;
+}
+
+.activity-content i.positive {
+    color: #4a7c59;
+}
+
+.activity-content span {
+    color: #333;
+    font-size: 0.9rem;
+}
+
+/* Animaciones para las estadísticas */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-card {
+    animation: countUp 0.6s ease forwards;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+.stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .metric-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .activity-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .activity-time {
+        min-width: auto;
+    }
+    
+    .stat-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+</style>
+
+<script>
+// Funcionalidad para las estadísticas
+document.addEventListener('DOMContentLoaded', function() {
+    // Animación de contadores
+    function animateCounter(element, target, duration = 2000) {
+        const start = 0;
+        const increment = target / (duration / 16);
+        let current = start;
+        
+        function updateCounter() {
+            current += increment;
+            if (current < target) {
+                if (target % 1 === 0) {
+                    element.textContent = Math.floor(current);
+                } else {
+                    element.textContent = current.toFixed(1);
+                }
+                requestAnimationFrame(updateCounter);
+            } else {
+                if (target % 1 === 0) {
+                    element.textContent = target;
+                } else {
+                    element.textContent = target.toFixed(1);
+                }
+            }
+        }
+        
+        updateCounter();
+    }
+    
+    // Observador para animar contadores cuando sean visibles
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumber = entry.target;
+                const target = parseFloat(statNumber.dataset.target);
+                animateCounter(statNumber, target);
+                observer.unobserve(statNumber);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    // Observar todos los contadores
+    document.querySelectorAll('.stat-number').forEach(stat => {
+        observer.observe(stat);
+    });
+    
+    // Simular actualizaciones en tiempo real
+    setInterval(() => {
+        const randomStat = document.querySelectorAll('.stat-number')[2]; // Alertas activas
+        if (randomStat) {
+            const currentValue = parseInt(randomStat.textContent);
+            const change = Math.floor(Math.random() * 3) - 1; // -1, 0, o 1
+            const newValue = Math.max(0, currentValue + change);
+            
+            // Animar el cambio
+            animateCounter(randomStat, newValue, 1000);
+            
+            // Actualizar el indicador de cambio
+            const changeElement = randomStat.parentElement.querySelector('.stat-change');
+            if (changeElement) {
+                const arrow = changeElement.querySelector('i');
+                const text = changeElement.querySelector('span');
+                
+                if (change > 0) {
+                    arrow.className = 'fas fa-arrow-up';
+                    changeElement.className = 'stat-change positive';
+                    text.textContent = `+${change} desde hace 5 min`;
+                } else if (change < 0) {
+                    arrow.className = 'fas fa-arrow-down';
+                    changeElement.className = 'stat-change negative';
+                    text.textContent = `${change} desde hace 5 min`;
+                } else {
+                    arrow.className = 'fas fa-minus';
+                    changeElement.className = 'stat-change';
+                    text.textContent = 'Sin cambios';
+                }
+            }
+        }
+    }, 30000); // Actualizar cada 30 segundos
+    
+    // Simular nueva actividad
+    const activityTimeline = document.querySelector('.activity-timeline');
+    if (activityTimeline) {
+        const activities = [
+            { icon: 'fas fa-exclamation-circle warning', text: 'Nueva alerta detectada en zona de Chinchiná' },
+            { icon: 'fas fa-check-circle success', text: 'Actualización de modelo de predicción completada' },
+            { icon: 'fas fa-coffee info', text: 'Nueva finca cafetera registrada en el sistema' },
+            { icon: 'fas fa-chart-line positive', text: 'Mejora en precisión del algoritmo de detección' },
+            { icon: 'fas fa-satellite info', text: 'Descarga de nuevos datos satelitales' }
+        ];
+        
+        let activityIndex = 0;
+        setInterval(() => {
+            const activity = activities[activityIndex % activities.length];
+            const newActivity = document.createElement('div');
+            newActivity.className = 'activity-item';
+            newActivity.innerHTML = `
+                <div class="activity-time">Hace 2 minutos</div>
+                <div class="activity-content">
+                    <i class="${activity.icon}"></i>
+                    <span>${activity.text}</span>
+                </div>
+            `;
+            
+            activityTimeline.insertBefore(newActivity, activityTimeline.firstChild);
+            
+            // Remover actividad más antigua si hay más de 4
+            if (activityTimeline.children.length > 4) {
+                activityTimeline.removeChild(activityTimeline.lastChild);
+            }
+            
+            activityIndex++;
+        }, 60000); // Nueva actividad cada minuto
+    }
+});
+</script> 

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart GeoCafé - Monitoreo de Deslizamientos en la Región Cafetera</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-mountain"></i>
+                    <span>Smart GeoCafé</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#proyecto">Proyecto</a></li>
+                    <li><a href="#tecnologia">Tecnología</a></li>
+                    <li><a href="#aplicacion">Aplicación</a></li>
+                    <li><a href="#equipo">Equipo</a></li>
+                    <li><a href="#futuro">Trabajo Futuro</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Monitoreo y Prevención de Deslizamientos
+                    <span class="highlight">en la Región Cafetera de Caldas</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Utilizando Inteligencia Artificial e Imágenes Satelitales para proteger 
+                    los cultivos de café y las comunidades de Colombia
+                </p>
+                <div class="hero-buttons">
+                    <a href="#proyecto" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Conocer el Proyecto
+                    </a>
+                    <a href="https://github.com/FrankYesid/Proyecto-deslizamiento" target="_blank" rel="noopener" class="btn btn-secondary">
+                        <i class="fab fa-github"></i>
+                        Ver en GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image">
+                    <i class="fas fa-satellite"></i>
+                    <div class="pulse-ring"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyecto Section -->
+    <section id="proyecto" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>El Proyecto Smart GeoCafé</h2>
+                <p>Una solución innovadora para la protección de la región cafetera</p>
+            </div>
+            <div class="project-grid">
+                <div class="project-card" data-card="prediction">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Modelo de Predicción de Riesgo</h3>
+                    <p>Modelo de IA entrenado para generar mapas predictivos de riesgo analizando series temporales de datos satelitales e indicadores del terreno.</p>
+                                         <div class="card-stats">
+                         <div class="stat-item">
+                             <span class="stat-number">95%</span>
+                             <span class="stat-label">Precisión</span>
+                         </div>
+                     </div>
+                </div>
+                <div class="project-card" data-card="visualization">
+                    <div class="card-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Herramienta de Visualización Interactiva</h3>
+                    <p>Plataforma amigable que muestra mapas dinámicos con capas de niveles de riesgo, cambios recientes y alertas críticas.</p>
+                                         <div class="card-stats">
+                         <div class="stat-item">
+                             <span class="stat-number">100+</span>
+                             <span class="stat-label">Capas</span>
+                         </div>
+                     </div>
+                </div>
+                <div class="project-card" data-card="mitigation">
+                    <div class="card-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Recomendaciones de Mitigación Sostenible</h3>
+                    <p>Basadas en las salidas del modelo, proporciona recomendaciones personalizadas para prácticas agrícolas sostenibles.</p>
+                                         <div class="card-stats">
+                         <div class="stat-item">
+                             <span class="stat-number">50+</span>
+                             <span class="stat-label">Recomendaciones</span>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tecnología Section -->
+    <section id="tecnologia" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tecnología Avanzada</h2>
+                <p>Integrando múltiples fuentes de datos para un análisis preciso</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item" data-tech="satellite">
+                    <div class="tech-icon">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <h4>Imágenes Satelitales</h4>
+                    <p>Sentinel-1 (radar) y Sentinel-2 (óptico) del programa Copernicus</p>
+                    <div class="tech-details">
+                        <span class="tech-stat">Resolución: 10m</span>
+                        <span class="tech-stat">Frecuencia: Diaria</span>
+                    </div>
+                </div>
+                                 <div class="tech-item" data-tech="ai">
+                     <div class="tech-icon">
+                         <i class="fas fa-network-wired"></i>
+                     </div>
+                     <h4>Redes Neuronales</h4>
+                     <p>CNN y ResNet para identificación de patrones</p>
+                     <div class="tech-details">
+                         <span class="tech-stat">ResNet: 93.59% Precisión</span>
+                         <span class="tech-stat">CNN: 81.08% Precisión</span>
+                     </div>
+                 </div>
+                <div class="tech-item" data-tech="database">
+                    <div class="tech-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>Base de Datos</h4>
+                    <p>Inventario de deslizamientos, modelos de terreno y registros históricos</p>
+                    <div class="tech-details">
+                        <span class="tech-stat">Registros: 1000+</span>
+                        <span class="tech-stat">Cobertura: Caldas</span>
+                    </div>
+                </div>
+                <div class="tech-item" data-tech="climate">
+                    <div class="tech-icon">
+                        <i class="fas fa-cloud-rain"></i>
+                    </div>
+                    <h4>Datos Climáticos</h4>
+                    <p>Registros de precipitación históricos y condiciones atmosféricas</p>
+                    <div class="tech-details">
+                        <span class="tech-stat">Estaciones: 50+</span>
+                        <span class="tech-stat">Frecuencia: Horaria</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aplicación Section -->
+    <section id="aplicacion" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Aplicación en Terrenos</h2>
+                <p>Identificación y mapeo de zonas de riesgo</p>
+            </div>
+            <div class="application-content">
+                <div class="application-text">
+                    <h3>Mapeo de Zonas de Riesgo</h3>
+                    <p>Nuestro modelo analiza patrones en:</p>
+                                         <ul class="feature-list">
+                         <li><i class="fas fa-check"></i> Uso del suelo y cobertura vegetal</li>
+                         <li><i class="fas fa-check"></i> Humedad del suelo y características geológicas</li>
+                         <li><i class="fas fa-check"></i> Eventos históricos de deslizamientos</li>
+                         <li><i class="fas fa-check"></i> Condiciones atmosféricas y precipitaciones</li>
+                     </ul>
+                    <div class="data-sources">
+                        <h4>Fuentes de Datos:</h4>
+                        <div class="source-links">
+                            <a href="https://zenodo.org/records/7711810" target="_blank" rel="noopener" class="source-link">
+                                <i class="fas fa-database"></i>
+                                Base de Datos Zenodo
+                            </a>
+                            <!-- <a href="https://www.datos.gov.co/Ambiente-y-Desarrollo-Sostenible/PRECIPITACIONES-2017-/m84s-22dd/about_data" target="_blank" rel="noopener" class="source-link">
+                                <i class="fas fa-cloud-rain"></i>
+                                Datos de Precipitación Colombia
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                                 <div class="application-visual">
+                     <div class="map-placeholder" id="interactive-map">
+                                         <div class="satellite-view">
+                    <div class="satellite-layer active" data-layer="risk">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center" alt="Vista satelital - Riesgo de deslizamientos" class="satellite-image">
+                        <div class="layer-overlay">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>Análisis de Riesgo</p>
+                        </div>
+                    </div>
+                    <div class="satellite-layer" data-layer="vegetation">
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop&crop=center" alt="Vista satelital - Cobertura vegetal" class="satellite-image">
+                        <div class="layer-overlay">
+                            <i class="fas fa-leaf"></i>
+                            <p>Análisis de Vegetación</p>
+                        </div>
+                    </div>
+                    <div class="satellite-layer" data-layer="terrain">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop&crop=center" alt="Vista satelital - Topografía del terreno" class="satellite-image">
+                        <div class="layer-overlay">
+                            <i class="fas fa-mountain"></i>
+                            <p>Análisis de Terreno</p>
+                        </div>
+                    </div>
+                </div>
+                         <div class="map-controls">
+                             <button class="map-btn active" data-layer="risk">Riesgo</button>
+                             <button class="map-btn" data-layer="vegetation">Vegetación</button>
+                             <button class="map-btn" data-layer="terrain">Terreno</button>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo Section -->
+    <section id="equipo" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Equipo Smart GeoCafé</h2>
+                <p>Expertos multidisciplinarios comprometidos con la innovación</p>
+            </div>
+            <div class="team-content">
+                <div class="team-description">
+                    <h3>Nuestro Equipo</h3>
+                    <p>Combinamos experiencia en:</p>
+                                         <ul class="expertise-list">
+                         <li><i class="fas fa-robot"></i> Inteligencia Artificial</li>
+                         <li><i class="fas fa-globe"></i> Análisis Geoespacial</li>
+                         <li><i class="fas fa-leaf"></i> Ciencias Ambientales</li>
+                         <li><i class="fas fa-seedling"></i> Agricultura</li>
+                     </ul>
+                </div>
+                <div class="team-goals">
+                    <h3>Objetivos</h3>
+                    <div class="goals-grid">
+                        <div class="goal-item" data-goal="protection">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Reducir riesgos de desastres</span>
+                            <div class="goal-progress">
+                                <div class="goal-progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="goal-item" data-goal="livelihood">
+                            <i class="fas fa-handshake"></i>
+                            <span>Proteger medios de vida</span>
+                            <div class="goal-progress">
+                                <div class="goal-progress-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="goal-item" data-goal="coffee">
+                            <i class="fas fa-coffee"></i>
+                            <span>Producción responsable de café</span>
+                            <div class="goal-progress">
+                                <div class="goal-progress-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="goal-item" data-goal="scale">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                            <span>Escalabilidad a otras regiones</span>
+                            <div class="goal-progress">
+                                <div class="goal-progress-fill" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trabajo Futuro Section -->
+    <section id="futuro" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Trabajo Futuro</h2>
+                <p>Análisis de tendencias de precipitación para mejorar la predicción de deslizamientos</p>
+            </div>
+            
+            <div class="future-hero">
+                <div class="future-hero-content">
+                    <h3>Análisis de Tendencias de Precipitación</h3>
+                    <p>Como siguiente fase del proyecto, estamos desarrollando algoritmos para identificar patrones de precipitación que puedan indicar mayor riesgo de deslizamientos en zonas específicas.</p>
+                    <div class="future-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">97%</div>
+                            <div class="stat-label">Precisión Esperada</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">6h</div>
+                            <div class="stat-label">Tiempo de Detección</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Fincas Protegidas</div>
+                        </div>
+                    </div>
+                    <div class="stats-note">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Métricas actualizadas diariamente desde la base de datos</span>
+                    </div>
+                </div>
+                <div class="future-hero-visual">
+                    <div class="rain-animation">
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                        <div class="rain-drop"></div>
+                    </div>
+                    <div class="chart-animation">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="future-features">
+                <div class="feature-card future-card">
+                    <div class="feature-icon pulse-icon">
+                        <i class="fas fa-cloud-rain"></i>
+                    </div>
+                    <h4>Análisis de Intensidad de Lluvias</h4>
+                    <p>Evaluación detallada de la intensidad y frecuencia de precipitaciones en la región cafetera de Caldas para identificar patrones de riesgo.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="data-source">
+                        <i class="fas fa-database"></i>
+                        <span>Fuente: <a href="https://www.datos.gov.co/Ambiente-y-Desarrollo-Sostenible/PRECIPITACIONES-2017-/m84s-22dd/about_data" target="_blank" rel="noopener">Datos Abiertos Colombia - Precipitaciones</a></span>
+                    </div>
+                </div>
+                
+                <div class="feature-card future-card">
+                    <div class="feature-icon pulse-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>Correlación con Eventos Históricos</h4>
+                    <p>Estudio de la relación entre patrones de precipitación y eventos de deslizamientos pasados para mejorar la predicción y alertas tempranas.</p>
+                    <div class="feature-list">
+                        <li class="list-item-animated"><i class="fas fa-check"></i> Análisis de datos históricos</li>
+                        <li class="list-item-animated"><i class="fas fa-check"></i> Identificación de patrones críticos</li>
+                        <li class="list-item-animated"><i class="fas fa-check"></i> Mejora de modelos predictivos</li>
+                    </div>
+                    <div class="timeline-indicator">
+                        <div class="timeline-dot active"></div>
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="future-features">
+                <div class="feature-card future-card">
+                    <div class="feature-icon pulse-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <h4>Datos Climáticos</h4>
+                    <p>Registros de precipitación históricos y condiciones atmosféricas para mejorar la precisión de nuestros modelos predictivos.</p>
+                    <div class="feature-list">
+                        <li class="list-item-animated"><i class="fas fa-check"></i> Registros de precipitación históricos y condiciones atmosféricas</li>
+                        <li class="list-item-animated"><i class="fas fa-check"></i> Estaciones: 50+</li>
+                        <li class="list-item-animated"><i class="fas fa-check"></i> Frecuencia: Horaria</li>
+                    </div>
+                    <div class="data-source">
+                        <i class="fas fa-database"></i>
+                        <span>Fuente: <a href="https://www.datos.gov.co/Ambiente-y-Desarrollo-Sostenible/PRECIPITACIONES-2017-/m84s-22dd/about_data" target="_blank" rel="noopener">Datos Abiertos Colombia - Precipitaciones</a></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="future-timeline">
+                <h3>Roadmap de Desarrollo</h3>
+                <div class="timeline-container">
+                                         <div class="timeline-item">
+                         <div class="timeline-marker">
+                             <i class="fas fa-rocket"></i>
+                         </div>
+                         <div class="timeline-content">
+                             <h4>Fase 1: Integración de Datos</h4>
+                             <p>Conectar con la API de datos de precipitaciones y desarrollar el pipeline de datos atmosféricos.</p>
+                         </div>
+                     </div>
+                     
+                     <div class="timeline-item">
+                         <div class="timeline-marker">
+                             <i class="fas fa-brain"></i>
+                         </div>
+                         <div class="timeline-content">
+                             <h4>Fase 2: Desarrollo del Modelo</h4>
+                             <p>Entrenamiento del modelo de IA para detectar cambios superficiales basados en datos climáticos.</p>
+                         </div>
+                     </div>
+                     
+                     <div class="timeline-item">
+                         <div class="timeline-marker">
+                             <i class="fas fa-chart-bar"></i>
+                         </div>
+                         <div class="timeline-content">
+                             <h4>Fase 3: Validación y Pruebas</h4>
+                             <p>Validación del modelo con datos históricos y pruebas en campo en la región de Caldas.</p>
+                         </div>
+                     </div>
+                     
+                     <div class="timeline-item">
+                         <div class="timeline-marker">
+                             <i class="fas fa-globe"></i>
+                         </div>
+                         <div class="timeline-content">
+                             <h4>Fase 4: Despliegue y Escalabilidad</h4>
+                             <p>Implementación en producción y expansión a otras regiones cafeteras de Colombia.</p>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Smart GeoCafé</h4>
+                    <p>Monitoreo y prevención de deslizamientos en la región cafetera de Caldas</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="https://github.com/FrankYesid/Proyecto-deslizamiento" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://clasificacion-uso-suelo-dy888kl.gamma.site/" target="_blank" rel="noopener">Demo</a></li>
+                        <li><a href="https://zenodo.org/records/7711810" target="_blank" rel="noopener">Base de Datos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <div class="contact-links">
+                        <a href="https://www.linkedin.com/in/frank-yesid-zapata-casta%C3%B1o/" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/FrankYesid" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Smart GeoCafé. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

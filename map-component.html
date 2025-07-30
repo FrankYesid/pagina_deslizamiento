@@ -1,0 +1,495 @@
+<!-- Componente de Mapa Interactivo para Smart GeoCafé -->
+<div class="map-container">
+    <div class="map-header">
+        <h3>Visualización de Zonas de Riesgo</h3>
+        <p>Mapa interactivo de la región cafetera de Caldas</p>
+    </div>
+    
+    <div class="map-controls">
+        <div class="control-group">
+            <label>Capas de Información:</label>
+            <div class="layer-toggles">
+                <button class="layer-btn active" data-layer="risk">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Riesgo de Deslizamiento
+                </button>
+                <button class="layer-btn" data-layer="vegetation">
+                    <i class="fas fa-leaf"></i>
+                    Cobertura Vegetal
+                </button>
+                <button class="layer-btn" data-layer="precipitation">
+                    <i class="fas fa-cloud-rain"></i>
+                    Precipitaciones
+                </button>
+                <button class="layer-btn" data-layer="terrain">
+                    <i class="fas fa-mountain"></i>
+                    Topografía
+                </button>
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <label>Filtros:</label>
+            <select class="risk-filter">
+                <option value="all">Todos los niveles de riesgo</option>
+                <option value="high">Alto riesgo</option>
+                <option value="medium">Riesgo medio</option>
+                <option value="low">Bajo riesgo</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="map-visualization">
+        <div class="map-placeholder-interactive">
+            <div class="map-overlay">
+                <div class="map-legend">
+                    <h4>Leyenda de Riesgo</h4>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <span class="legend-color high-risk"></span>
+                            <span>Alto Riesgo</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color medium-risk"></span>
+                            <span>Riesgo Medio</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color low-risk"></span>
+                            <span>Bajo Riesgo</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <span class="stat-number">1,247</span>
+                            <span class="stat-label">Zonas Monitoreadas</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div>
+                            <span class="stat-number">23</span>
+                            <span class="stat-label">Alertas Activas</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-coffee"></i>
+                        <div>
+                            <span class="stat-number">156</span>
+                            <span class="stat-label">Fincas Cafeteras</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="map-info">
+        <div class="info-panel">
+            <h4>Información del Modelo</h4>
+            <ul>
+                <li><strong>Precisión del Modelo:</strong> 94.2%</li>
+                <li><strong>Última Actualización:</strong> 15 minutos</li>
+                <li><strong>Datos Satelitales:</strong> Sentinel-1 & Sentinel-2</li>
+                <li><strong>Cobertura:</strong> Región de Caldas, Colombia</li>
+            </ul>
+        </div>
+        
+        <div class="data-sources-panel">
+            <h4>Fuentes de Datos</h4>
+            <div class="source-item">
+                <i class="fas fa-satellite"></i>
+                <div>
+                    <strong>Copernicus Program</strong>
+                    <span>Imágenes satelitales en tiempo real</span>
+                </div>
+            </div>
+            <div class="source-item">
+                <i class="fas fa-database"></i>
+                <div>
+                    <strong>Base de Datos Zenodo</strong>
+                    <span>Inventario histórico de deslizamientos</span>
+                </div>
+            </div>
+            <div class="source-item">
+                <i class="fas fa-cloud-rain"></i>
+                <div>
+                    <strong>IDEAM Colombia</strong>
+                    <span>Datos de precipitación y clima</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Estilos para el componente de mapa */
+.map-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 40px 0;
+}
+
+.map-header {
+    background: linear-gradient(135deg, #2c5530, #4a7c59);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.map-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.map-controls {
+    background: #f8f9fa;
+    padding: 25px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.control-group {
+    margin-bottom: 20px;
+}
+
+.control-group:last-child {
+    margin-bottom: 0;
+}
+
+.control-group label {
+    display: block;
+    font-weight: 600;
+    color: #2c5530;
+    margin-bottom: 10px;
+}
+
+.layer-toggles {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.layer-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.layer-btn:hover {
+    border-color: #4a7c59;
+    transform: translateY(-2px);
+}
+
+.layer-btn.active {
+    background: #4a7c59;
+    color: white;
+    border-color: #4a7c59;
+}
+
+.risk-filter {
+    padding: 10px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    background: white;
+    font-size: 0.9rem;
+    min-width: 200px;
+}
+
+.map-visualization {
+    position: relative;
+    height: 400px;
+    background: linear-gradient(135deg, #4a7c59, #6b9c7a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-placeholder-interactive {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.map-legend {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    max-width: 200px;
+}
+
+.map-legend h4 {
+    color: #2c5530;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.legend-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.high-risk {
+    background: #dc3545;
+}
+
+.medium-risk {
+    background: #ffc107;
+}
+
+.low-risk {
+    background: #28a745;
+}
+
+.map-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 150px;
+}
+
+.stat-item i {
+    color: #4a7c59;
+    font-size: 1.2rem;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2c5530;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.map-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 30px;
+    background: #f8f9fa;
+}
+
+.info-panel h4,
+.data-sources-panel h4 {
+    color: #2c5530;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.info-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-panel li {
+    padding: 8px 0;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 0.9rem;
+}
+
+.info-panel li:last-child {
+    border-bottom: none;
+}
+
+.source-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.source-item:last-child {
+    border-bottom: none;
+}
+
+.source-item i {
+    color: #4a7c59;
+    font-size: 1.5rem;
+}
+
+.source-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.source-item strong {
+    color: #2c5530;
+    font-size: 0.9rem;
+}
+
+.source-item span {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* Responsive design para el mapa */
+@media (max-width: 768px) {
+    .map-overlay {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .map-legend {
+        max-width: none;
+    }
+    
+    .map-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .stat-item {
+        min-width: 120px;
+    }
+    
+    .map-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .layer-toggles {
+        flex-direction: column;
+    }
+    
+    .layer-btn {
+        justify-content: center;
+    }
+}
+</style>
+
+<script>
+// Funcionalidad para el componente de mapa
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle de capas
+    const layerButtons = document.querySelectorAll('.layer-btn');
+    layerButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remover clase active de todos los botones
+            layerButtons.forEach(b => b.classList.remove('active'));
+            // Agregar clase active al botón clickeado
+            this.classList.add('active');
+            
+            // Simular cambio de capa
+            const layer = this.dataset.layer;
+            console.log('Cambiando a capa:', layer);
+            
+            // Aquí se podría integrar con una API de mapas real
+        });
+    });
+    
+    // Filtro de riesgo
+    const riskFilter = document.querySelector('.risk-filter');
+    if (riskFilter) {
+        riskFilter.addEventListener('change', function() {
+            const selectedRisk = this.value;
+            console.log('Filtrando por riesgo:', selectedRisk);
+            
+            // Simular actualización de estadísticas
+            updateStats(selectedRisk);
+        });
+    }
+    
+    // Función para actualizar estadísticas
+    function updateStats(riskLevel) {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        // Simular datos diferentes según el filtro
+        const stats = {
+            all: [1247, 23, 156],
+            high: [89, 23, 12],
+            medium: [234, 8, 45],
+            low: [924, 2, 99]
+        };
+        
+        const currentStats = stats[riskLevel] || stats.all;
+        
+        statNumbers.forEach((stat, index) => {
+            if (index < currentStats.length) {
+                animateNumber(stat, currentStats[index]);
+            }
+        });
+    }
+    
+    // Animación de números
+    function animateNumber(element, target) {
+        const start = parseInt(element.textContent);
+        const increment = (target - start) / 20;
+        let current = start;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if ((increment > 0 && current >= target) || (increment < 0 && current <= target)) {
+                element.textContent = target;
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(current);
+            }
+        }, 50);
+    }
+    
+    // Simular actualizaciones en tiempo real
+    setInterval(() => {
+        const randomStat = document.querySelectorAll('.stat-number')[1];
+        if (randomStat) {
+            const currentValue = parseInt(randomStat.textContent);
+            const newValue = Math.max(0, currentValue + Math.floor(Math.random() * 3) - 1);
+            animateNumber(randomStat, newValue);
+        }
+    }, 30000); // Actualizar cada 30 segundos
+});
+</script> 

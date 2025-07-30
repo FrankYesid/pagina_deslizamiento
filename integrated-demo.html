@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart GeoCafé - Monitoreo de Deslizamientos en la Región Cafetera</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilos adicionales para la versión integrada */
+        .demo-notice {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: linear-gradient(135deg, #4a7c59, #6b9c7a);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+        
+        .demo-notice i {
+            margin-right: 10px;
+            color: #a8d5ba;
+        }
+        
+        .floating-action {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .fab-button {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4a7c59, #6b9c7a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .fab-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #4a7c59, #6b9c7a);
+            z-index: 1002;
+            transition: width 0.3s ease;
+        }
+        
+        .scroll-indicator {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .scroll-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(74, 124, 89, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-dot.active {
+            background: #4a7c59;
+            transform: scale(1.2);
+        }
+        
+        .scroll-dot:hover {
+            background: #4a7c59;
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .demo-notice {
+                position: static;
+                margin: 20px;
+                max-width: none;
+            }
+            
+            .floating-action {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .scroll-indicator {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <!-- Demo Notice -->
+    <div class="demo-notice">
+        <i class="fas fa-info-circle"></i>
+        <strong>Demo Interactivo</strong><br>
+        Esta es una presentación del proyecto Smart GeoCafé
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+        <div class="scroll-dot" data-section="inicio"></div>
+        <div class="scroll-dot" data-section="proyecto"></div>
+        <div class="scroll-dot" data-section="tecnologia"></div>
+        <div class="scroll-dot" data-section="aplicacion"></div>
+        <div class="scroll-dot" data-section="equipo"></div>
+    </div>
+    
+    <!-- Floating Action Button -->
+    <div class="floating-action">
+        <div class="fab-button" id="fabButton">
+            <i class="fas fa-rocket"></i>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-mountain"></i>
+                    <span>Smart GeoCafé</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#proyecto">Proyecto</a></li>
+                    <li><a href="#tecnologia">Tecnología</a></li>
+                    <li><a href="#aplicacion">Aplicación</a></li>
+                    <li><a href="#equipo">Equipo</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Monitoreo y Prevención de Deslizamientos
+                    <span class="highlight">en la Región Cafetera de Caldas</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Utilizando Inteligencia Artificial e Imágenes Satelitales para proteger 
+                    los cultivos de café y las comunidades de Colombia
+                </p>
+                <div class="hero-buttons">
+                    <a href="#proyecto" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Conocer el Proyecto
+                    </a>
+                    <a href="https://github.com/FrankYesid/Proyecto-deslizamiento" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i>
+                        Ver en GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image">
+                    <i class="fas fa-satellite"></i>
+                    <div class="pulse-ring"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyecto Section -->
+    <section id="proyecto" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>El Proyecto Smart GeoCafé</h2>
+                <p>Una solución innovadora para la protección de la región cafetera</p>
+            </div>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Modelo de Predicción de Riesgo</h3>
+                    <p>Modelo de IA entrenado para generar mapas predictivos de riesgo analizando series temporales de datos satelitales e indicadores del terreno.</p>
+                </div>
+                <div class="project-card">
+                    <div class="card-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Herramienta de Visualización Interactiva</h3>
+                    <p>Plataforma amigable que muestra mapas dinámicos con capas de niveles de riesgo, cambios recientes y alertas críticas.</p>
+                </div>
+                <div class="project-card">
+                    <div class="card-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Recomendaciones de Mitigación Sostenible</h3>
+                    <p>Basadas en las salidas del modelo, proporciona recomendaciones personalizadas para prácticas agrícolas sostenibles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tecnología Section -->
+    <section id="tecnologia" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tecnología Avanzada</h2>
+                <p>Integrando múltiples fuentes de datos para un análisis preciso</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <h4>Imágenes Satelitales</h4>
+                    <p>Sentinel-1 (radar) y Sentinel-2 (óptico) del programa Copernicus</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h4>Redes Neuronales</h4>
+                    <p>CNNs y modelos ensemble para identificación de patrones</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>Base de Datos</h4>
+                    <p>Inventario de deslizamientos, modelos de terreno y registros históricos</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-cloud-rain"></i>
+                    </div>
+                    <h4>Datos Climáticos</h4>
+                    <p>Registros de precipitación históricos y condiciones atmosféricas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aplicación Section -->
+    <section id="aplicacion" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Aplicación en Terrenos</h2>
+                <p>Identificación y mapeo de zonas de riesgo</p>
+            </div>
+            <div class="application-content">
+                <div class="application-text">
+                    <h3>Mapeo de Zonas de Riesgo</h3>
+                    <p>Nuestro modelo analiza patrones en:</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Uso del suelo y cobertura vegetal</li>
+                        <li><i class="fas fa-check"></i> Humedad del suelo y características geológicas</li>
+                        <li><i class="fas fa-check"></i> Eventos históricos de deslizamientos</li>
+                        <li><i class="fas fa-check"></i> Condiciones atmosféricas y precipitaciones</li>
+                    </ul>
+                    <div class="data-sources">
+                        <h4>Fuentes de Datos:</h4>
+                        <div class="source-links">
+                            <a href="https://zenodo.org/records/7711810" target="_blank" class="source-link">
+                                <i class="fas fa-database"></i>
+                                Base de Datos Zenodo
+                            </a>
+                            <a href="https://www.datos.gov.co/Ambiente-y-Desarrollo-Sostenible/PRECIPITACIONES-2017-/m84s-22dd/about_data" target="_blank" class="source-link">
+                                <i class="fas fa-cloud-rain"></i>
+                                Datos de Precipitación Colombia
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="application-visual">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map"></i>
+                        <p>Visualización Interactiva de Riesgos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo Section -->
+    <section id="equipo" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Equipo Smart GeoCafé</h2>
+                <p>Expertos multidisciplinarios comprometidos con la innovación</p>
+            </div>
+            <div class="team-content">
+                <div class="team-description">
+                    <h3>Nuestro Equipo</h3>
+                    <p>Combinamos experiencia en:</p>
+                    <ul class="expertise-list">
+                        <li><i class="fas fa-robot"></i> Inteligencia Artificial</li>
+                        <li><i class="fas fa-globe"></i> Análisis Geoespacial</li>
+                        <li><i class="fas fa-leaf"></i> Ciencias Ambientales</li>
+                        <li><i class="fas fa-seedling"></i> Agricultura</li>
+                    </ul>
+                </div>
+                <div class="team-goals">
+                    <h3>Objetivos</h3>
+                    <div class="goals-grid">
+                        <div class="goal-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Reducir riesgos de desastres</span>
+                        </div>
+                        <div class="goal-item">
+                            <i class="fas fa-handshake"></i>
+                            <span>Proteger medios de vida</span>
+                        </div>
+                        <div class="goal-item">
+                            <i class="fas fa-coffee"></i>
+                            <span>Producción responsable de café</span>
+                        </div>
+                        <div class="goal-item">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                            <span>Escalabilidad a otras regiones</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Smart GeoCafé</h4>
+                    <p>Monitoreo y prevención de deslizamientos en la región cafetera de Caldas</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="https://github.com/FrankYesid/Proyecto-deslizamiento" target="_blank">GitHub</a></li>
+                        <li><a href="https://clasificacion-uso-suelo-dy888kl.gamma.site/" target="_blank">Demo</a></li>
+                        <li><a href="https://zenodo.org/records/7711810" target="_blank">Base de Datos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>Proyecto COMUNIDAD - Transferencia de tecnología en América Latina</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Smart GeoCafé. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Funcionalidad adicional para la versión integrada
+        document.addEventListener('DOMContentLoaded', function() {
+            // Progress bar
+            const progressBar = document.getElementById('progressBar');
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.body.offsetHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                progressBar.style.width = scrollPercent + '%';
+            });
+
+            // Scroll indicator
+            const scrollDots = document.querySelectorAll('.scroll-dot');
+            const sections = ['inicio', 'proyecto', 'tecnologia', 'aplicacion', 'equipo'];
+            
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset;
+                const windowHeight = window.innerHeight;
+                
+                sections.forEach((section, index) => {
+                    const element = document.getElementById(section);
+                    if (element) {
+                        const elementTop = element.offsetTop - 100;
+                        const elementBottom = elementTop + element.offsetHeight;
+                        
+                        if (scrollTop >= elementTop && scrollTop < elementBottom) {
+                            scrollDots.forEach(dot => dot.classList.remove('active'));
+                            scrollDots[index].classList.add('active');
+                        }
+                    }
+                });
+            });
+
+            // Scroll to section when clicking dots
+            scrollDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    const section = document.getElementById(sections[index]);
+                    if (section) {
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const targetPosition = section.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Floating action button
+            const fabButton = document.getElementById('fabButton');
+            fabButton.addEventListener('click', () => {
+                // Scroll to top
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                
+                // Add animation
+                fabButton.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    fabButton.style.transform = 'scale(1)';
+                }, 200);
+            });
+
+            // Demo notice auto-hide
+            const demoNotice = document.querySelector('.demo-notice');
+            setTimeout(() => {
+                demoNotice.style.opacity = '0';
+                setTimeout(() => {
+                    demoNotice.style.display = 'none';
+                }, 500);
+            }, 5000);
+
+            // Add smooth reveal animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html> 
